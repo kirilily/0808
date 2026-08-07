@@ -1,588 +1,1249 @@
+:root {
+    --paper: #f2eee6;
+    --ink: #18201f;
+    --muted: rgba(24, 32, 31, .52);
+    --line: rgba(24, 32, 31, .14);
+    --mono: "DM Mono", monospace;
+    --serif: "Cormorant Garamond", serif;
+    --script: "Italianno", cursive;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
+    background: #101817;
 }
-
 
 body {
-    background: #f6f1e8;
-    color: #1e2423;
-    font-family: "Cormorant Garamond", serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    overflow-x: hidden;
+}
+
+button {
+    font: inherit;
 }
 
 
-.hero {
-    height: 100svh;
+/* =========================================
+   INTRO
+========================================= */
+
+.intro-screen {
     position: relative;
+    height: 100svh;
+    min-height: 620px;
     overflow: hidden;
+    color: #fff;
+    background: #172b2c;
 }
 
-
-.sea-video {
+.sea-video,
+.sea-fallback,
+.sea-shade {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
+}
+
+.sea-video {
+    z-index: 0;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.8s ease;
+}
+
+.sea-video.ready {
+    opacity: 1;
+}
+
+.sea-fallback {
+    z-index: -1;
+    background-image: url("poster.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.sea-shade {
+    z-index: 1;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 12, 14, .30) 0%,
+            rgba(0, 12, 14, .05) 45%,
+            rgba(0, 8, 10, .48) 100%
+        );
+}
+
+
+/* =========================================
+   TERMINAL INTRO
+========================================= */
+
+.terminal-intro {
+    position: absolute;
+    z-index: 5;
+    top: 7vh;
+    left: 6vw;
+
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.8;
+    letter-spacing: .04em;
+
+    opacity: 0;
+    animation: introTerminal 1.2s ease forwards;
+    animation-delay: .5s;
+}
+
+.prompt {
+    opacity: .55;
+    margin-right: 7px;
+}
+
+.indent {
+    padding-left: 17px;
+    opacity: .85;
+}
+
+.terminal-meta {
+    display: flex;
+    gap: 22px;
+    margin-top: 7px;
+    color: rgba(255,255,255,.58);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+
+@keyframes introTerminal {
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   HANDWRITTEN TITLE
+========================================= */
+
+.handwritten-title {
+    position: absolute;
+    z-index: 4;
+
+    width: min(560px, 88vw);
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -53%);
+
+    opacity: 0;
+    animation: titleAppear 1s ease forwards;
+    animation-delay: 1.2s;
+}
+
+.handwritten-title svg {
+    width: 100%;
+    overflow: visible;
+}
+
+.name,
+.amp {
+    text-anchor: middle;
+    fill: transparent;
+    stroke: rgba(255,255,255,.94);
+    stroke-width: .7px;
+    font-family: var(--script);
+}
+
+.name {
+    font-size: 94px;
+}
+
+.amp {
+    font-size: 58px;
+}
+
+.name-kirill {
+    stroke-dasharray: 700;
+    stroke-dashoffset: 700;
+    animation: handwriting 2.8s cubic-bezier(.65,0,.25,1) forwards;
+    animation-delay: 1.5s;
+}
+
+.amp {
+    stroke-dasharray: 250;
+    stroke-dashoffset: 250;
+    animation: handwriting 1.2s ease forwards;
+    animation-delay: 3.1s;
+}
+
+.name-lily {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: handwriting 2.4s cubic-bezier(.65,0,.25,1) forwards;
+    animation-delay: 3.9s;
+}
+
+@keyframes handwriting {
+    0% {
+        stroke-dashoffset: var(--length, 700);
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        fill: rgba(255,255,255,.96);
+    }
+}
+
+@keyframes titleAppear {
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   INTRO META
+========================================= */
+
+.intro-date {
+    position: absolute;
+    z-index: 5;
+
+    left: 50%;
+    bottom: 18vh;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+
+    opacity: 0;
+    animation: bottomAppear 1.4s ease forwards;
+    animation-delay: 5.8s;
+}
+
+@keyframes bottomAppear {
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.start-button,
+.audio-toggle {
+    position: absolute;
+    z-index: 10;
+
+    background: transparent;
+    color: #fff;
+
+    border: 1px solid rgba(255,255,255,.42);
+
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background .4s ease,
+        color .4s ease,
+        border-color .4s ease,
+        transform .4s ease;
+}
+
+.start-button {
+    left: 50%;
+    bottom: 7vh;
+    transform: translateX(-50%);
+
+    padding: 12px 20px;
+
+    opacity: 0;
+    animation: bottomAppear 1.2s ease forwards;
+    animation-delay: 6.2s;
+}
+
+.start-button:hover {
+    background: rgba(255,255,255,.92);
+    color: #142120;
+    border-color: #fff;
+}
+
+.arrow {
+    margin-left: 13px;
+}
+
+.audio-toggle {
+    right: 5vw;
+    bottom: 5vh;
+
+    padding: 8px 12px;
+
+    opacity: .7;
+}
+
+.audio-toggle:hover {
+    opacity: 1;
+}
+
+
+/* =========================================
+   STORY
+========================================= */
+
+.story-app {
+    position: relative;
+    background: var(--paper);
+}
+
+.chapter {
+    position: relative;
+    min-height: 100vh;
+    padding: 14vh 8vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.chapter-header {
+    width: min(720px, 100%);
+    margin: 0 auto 9vh;
+    text-align: center;
+}
+
+.chapter-code {
+    display: block;
+
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+
+    color: var(--muted);
+}
+
+.chapter h2 {
+    margin-top: 22px;
+
+    font-size: clamp(54px, 8vw, 100px);
+    font-weight: 300;
+    line-height: .92;
+    letter-spacing: -.04em;
+}
+
+.chapter-intro {
+    max-width: 550px;
+    margin: 35px auto 0;
+
+    font-size: clamp(20px, 2.2vw, 27px);
+    line-height: 1.55;
+    font-weight: 300;
+
+    white-space: pre-line;
+}
+
+
+/* =========================================
+   CHAPTER NAV
+========================================= */
+
+.chapter-nav {
+    position: fixed;
+    z-index: 30;
+
+    right: 28px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chapter-nav button {
+    width: 28px;
+    height: 28px;
+
+    border: 0;
+    background: transparent;
+
+    color: rgba(255,255,255,.65);
+
+    font-family: var(--mono);
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.story-app .chapter-nav {
+    mix-blend-mode: difference;
+}
+
+.chapter-nav button.active {
+    color: #fff;
+}
+
+.chapter-nav button.active::before {
+    content: "";
+
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    margin-left: -10px;
+    margin-top: 6px;
+
+    border-radius: 50%;
+    background: currentColor;
+}
+
+
+/* =========================================
+   CHAPTER 01
+========================================= */
+
+.editorial-gallery {
+    width: min(1050px, 100%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 28px;
+
+    align-items: start;
+}
+
+.photo {
+    position: relative;
+}
+
+.photo img,
+.single-feature img,
+.proposal-grid img,
+.dress-photo img,
+.adventure-layout img,
+.wedding-gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.photo.large {
+    grid-row: span 2;
+}
+
+.photo.offset {
+    margin-top: 100px;
+}
+
+.photo.memory {
+    margin-top: -30px;
+}
+
+.photo figcaption,
+.adventure-layout figcaption {
+    margin-top: 9px;
+
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    color: var(--muted);
+}
+
+
+/* =========================================
+   CHAPTER 02
+========================================= */
+
+.single-feature {
+    width: min(900px, 100%);
+    margin: auto;
+}
+
+.single-feature img {
+    max-height: 75vh;
     object-fit: cover;
 }
 
+.single-feature > span {
+    display: block;
 
-.overlay {
-    position: absolute;
-    inset: 0;
-    background:
-    linear-gradient(
-    rgba(0,0,0,.18),
-    rgba(0,0,0,.45)
-    );
+    margin-top: 12px;
+
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    color: var(--muted);
+}
+
+.single-feature.narrow {
+    width: min(620px, 80%);
+    margin-top: 8vh;
+}
+
+.story-text {
+    margin: 8vh auto;
+    text-align: center;
+}
+
+.story-text p {
+    font-size: 28px;
+    line-height: 1.5;
 }
 
 
-.hero-content {
+/* =========================================
+   CHAPTER 03
+========================================= */
 
+.proposal-grid {
+    width: min(1050px, 100%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.dress-photo {
+    width: min(650px, 75%);
+    margin: 9vh auto 0;
+}
+
+.dress-photo span {
+    display: block;
+
+    margin-top: 12px;
+
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+
+    color: var(--muted);
+}
+
+
+/* =========================================
+   CHAPTER 04
+========================================= */
+
+.adventure-layout {
+    width: min(1050px, 100%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    grid-template-rows: auto auto;
+
+    gap: 28px;
+}
+
+.adventure-main {
+    grid-row: span 2;
+}
+
+.adventure-small {
+    width: 85%;
+}
+
+.adventure-small.home {
+    margin-left: 15%;
+}
+
+.adventure-note {
+    width: min(560px, 100%);
+    margin: 10vh auto 0;
+
+    text-align: center;
+
+    font-size: 27px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   CHAPTER 05
+========================================= */
+
+.final-chapter {
+    min-height: auto;
+    padding-bottom: 18vh;
+}
+
+.wedding-gallery {
+    width: min(1050px, 100%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.commit-block {
+    width: min(480px, 90%);
+    margin: 10vh auto 0;
+
+    padding: 25px;
+
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    font-family: var(--mono);
+    text-align: left;
+}
+
+.commit-block span,
+.commit-block code {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.commit-block p {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+.final-line {
+    margin-top: 13vh;
+
+    text-align: center;
+
+    font-family: var(--serif);
+    font-size: clamp(38px, 6vw, 70px);
+
+    font-style: italic;
+    font-weight: 300;
+}
+
+
+/* =========================================
+   PROMISE
+========================================= */
+
+.promise {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+
+    background: #dfe5df;
+}
+
+.promise-inner {
+    max-width: 750px;
+    text-align: center;
+}
+
+.promise blockquote {
+    margin: 35px 0 25px;
+
+    font-size: clamp(42px, 7vw, 78px);
+    font-weight: 300;
+    line-height: 1;
+}
+
+.promise cite {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-style: normal;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+
+/* =========================================
+   BOTTLE
+========================================= */
+
+.bottle-section {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #25454a 0%,
+            #142e32 100%
+        );
+
+    color: #f4f0e8;
+
+    padding: 15vh 8vw;
+}
+
+.bottle-intro {
     position: relative;
     z-index: 2;
 
-    height:100%;
+    max-width: 600px;
+    margin: auto;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    text-align: center;
+}
 
-    text-align:center;
+.bottle-intro .chapter-code {
+    color: rgba(255,255,255,.5);
+}
 
-    color:white;
+.bottle-intro h2 {
+    margin-top: 25px;
 
+    font-size: clamp(55px, 8vw, 100px);
+    font-weight: 300;
+    line-height: .92;
+}
+
+.bottle-intro p {
+    margin-top: 25px;
+
+    font-size: 20px;
+    color: rgba(255,255,255,.7);
+}
+
+.bottle-scene {
+    position: relative;
+
+    height: 50vh;
+    min-height: 350px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.water-glow {
+    position: absolute;
+
+    width: 70vw;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.08);
+
+    filter: blur(30px);
 }
 
 
-.intro {
-
-    font-size:18px;
-
-    letter-spacing:5px;
-
-    opacity:.85;
-
-    margin-bottom:35px;
-
-}
-
-
-
-.handwritten {
-
-    font-family:"Parisienne", cursive;
-
-    font-size:clamp(80px,22vw,160px);
-
-    font-weight:400;
-
-    line-height:.8;
-
-}
-
-
-.handwritten span {
-
-    display:block;
-
-    opacity:0;
-
-    animation: write 1.8s forwards;
-
-}
-
-
-
-.handwritten span:nth-child(1){
-
-    animation-delay:.8s;
-
-}
-
-
-
-.handwritten span:nth-child(2){
-
-    animation-delay:2.1s;
-
-}
-
-
-
-.handwritten span:nth-child(3){
-
-    animation-delay:3s;
-
-}
-
-
-
-@keyframes write {
-
-    from {
-
-        opacity:0;
-
-        transform:translateY(20px);
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-
-
-
-
-.hero-date {
-
-    margin-top:40px;
-
-    font-size:22px;
-
-    letter-spacing:6px;
-
-    opacity:0;
-
-    animation:fade 2s forwards;
-
-    animation-delay:4s;
-
-}
-
-
-
-@keyframes fade {
-
-    to {
-        opacity:1;
-    }
-
-}
-
-
-
-.enter-button,
-.sound-button,
-.open-bottle {
-
-
-    background:transparent;
-
-    border:1px solid rgba(255,255,255,.7);
-
-    color:white;
-
-    padding:14px 35px;
-
-    border-radius:50px;
-
-    letter-spacing:3px;
-
-    font-family:inherit;
-
-    cursor:pointer;
-
-    transition:.4s;
-
-}
-
-
-.enter-button {
-
-    margin-top:40px;
-
-    opacity:0;
-
-    animation:fade 2s forwards;
-
-    animation-delay:4.5s;
-
-}
-
-
-
-.enter-button:hover,
-.sound-button:hover,
-.open-bottle:hover {
-
-    background:white;
-
-    color:#222;
-
-}
-
-
-
-
-
-.sound-button {
-
-    position:fixed;
-
-    right:20px;
-
-    bottom:20px;
-
-    z-index:20;
-
-}
-
-
-
-
-
-.story {
-
-    padding:60px 20px;
-
-}
-
-
-
-.chapter {
-
-    max-width:850px;
-
-    margin:auto;
-
-    padding:100px 0;
-
-    text-align:center;
-
-}
-
-
-
-.number {
-
-    letter-spacing:5px;
-
-    opacity:.5;
-
-}
-
-
-
-h2 {
-
-    font-size:clamp(45px,8vw,75px);
-
-    font-weight:400;
-
-    margin:25px 0 40px;
-
-}
-
-
-
-.chapter p {
-
-    font-size:24px;
-
-    line-height:1.7;
-
-    margin:35px auto;
-
-}
-
-
-
-.gallery {
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:20px;
-
-}
-
-
-
-.gallery img {
-
-    width:100%;
-
-    display:block;
-
-}
-
-
-
-.gallery.two {
-
-    grid-template-columns:repeat(2,1fr);
-
-}
-
-
-
-.single-photo {
-
-    width:min(90%,650px);
-
-    margin:40px auto;
-
-    display:block;
-
-}
-
-
-
-.wedding img {
-
-    aspect-ratio:1/1;
-
-    object-fit:cover;
-
-}
-
-
-
-
-
-.promise {
-
-    min-height:100svh;
-
-    background:#e8ece8;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:40px;
-
-}
-
-
-
-.promise-inner {
-
-    max-width:700px;
-
-}
-
-
-
-.bible {
-
-    font-size:38px;
-
-    font-style:italic;
-
-}
-
-
-
-
-
-
-
-
-.bottle-section {
-
-    min-height:100svh;
-
-    background:url("poster.jpg");
-
-    background-size:cover;
-
-    background-position:center;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:30px;
-
-}
-
-
-
-.shore-message {
-
-    text-align:center;
-
-    color:white;
-
-}
-
-
+/* =========================================
+   GLASS BOTTLE
+========================================= */
 
 .bottle {
+    position: relative;
 
-    width:150px;
+    width: 130px;
+    height: 245px;
 
-    height:220px;
+    border: 0;
+    background: transparent;
 
-    margin:40px auto;
+    cursor: pointer;
+
+    transform-origin: center bottom;
+
+    animation:
+        bottleFloat 4.5s ease-in-out infinite;
+
+    transition:
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        opacity .8s ease;
+}
+
+.bottle-neck {
+    position: absolute;
+
+    width: 36px;
+    height: 70px;
+
+    left: 47px;
+    top: 0;
+
+    border: 2px solid rgba(220,240,235,.52);
+    border-bottom: 0;
+
+    border-radius: 10px 10px 0 0;
+
+    background: rgba(180,220,215,.08);
+
+    backdrop-filter: blur(2px);
+}
+
+.bottle-body {
+    position: absolute;
+
+    left: 0;
+    top: 52px;
+
+    width: 130px;
+    height: 190px;
+
+    border: 2px solid rgba(220,240,235,.55);
+
+    border-radius:
+        45px
+        45px
+        28px
+        28px;
 
     background:
+        linear-gradient(
+            100deg,
+            rgba(255,255,255,.22),
+            rgba(255,255,255,.04) 35%,
+            rgba(0,20,22,.08)
+        );
 
-    linear-gradient(
-    90deg,
-    rgba(255,255,255,.4),
-    rgba(255,255,255,.1)
-    );
+    box-shadow:
+        inset 12px 0 20px rgba(255,255,255,.12),
+        inset -12px 0 20px rgba(0,0,0,.08),
+        0 20px 50px rgba(0,0,0,.18);
 
-    border-radius:60px 60px 30px 30px;
-
-    border:2px solid rgba(255,255,255,.7);
-
-    animation:float 4s infinite ease-in-out;
-
+    backdrop-filter: blur(3px);
 }
 
+.bottle-cork {
+    position: absolute;
 
+    left: 44px;
+    top: -7px;
 
-@keyframes float {
+    width: 42px;
+    height: 15px;
+
+    border-radius: 4px;
+
+    background: #b19a75;
+
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+
+.bottle-paper {
+    position: absolute;
+
+    width: 45px;
+    height: 90px;
+
+    left: 42px;
+    top: 50px;
+
+    background: #e9dfc9;
+
+    transform: rotate(-7deg);
+
+    box-shadow: 0 4px 10px rgba(0,0,0,.12);
+}
+
+@keyframes bottleFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
 
     50% {
-
-        transform:translateY(-20px) rotate(3deg);
-
+        transform: translateY(-18px) rotate(3deg);
     }
+}
 
+.bottle-hint {
+    position: absolute;
+
+    bottom: 3vh;
+
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+
+    color: rgba(255,255,255,.5);
 }
 
 
+/* =========================================
+   LETTER
+========================================= */
 
 .letter {
+    position: absolute;
 
-    display:none;
+    inset: 0;
 
-    max-width:700px;
+    z-index: 20;
 
-    background:#f8f0df;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    padding:45px;
+    padding: 30px;
 
-    margin-top:40px;
+    background: rgba(10,27,29,.78);
 
-    font-size:22px;
+    backdrop-filter: blur(12px);
 
-    line-height:1.7;
+    opacity: 0;
+    pointer-events: none;
 
+    transition: opacity 1s ease;
 }
 
-
-
-.letter.show {
-
-    display:block;
-
-    animation:appear 1.5s;
-
+.letter.open {
+    opacity: 1;
+    pointer-events: auto;
 }
 
+.letter-paper {
+    width: min(720px, 100%);
+    max-height: 85vh;
+    overflow-y: auto;
 
+    padding: clamp(30px, 6vw, 65px);
 
-@keyframes appear {
+    background:
+        linear-gradient(
+            135deg,
+            #f2ead8,
+            #e9dec6
+        );
 
-    from {
+    color: #25241f;
 
-        opacity:0;
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.35);
 
-        transform:scale(.95);
+    transform:
+        translateY(70px)
+        rotate(1deg);
 
-    }
+    transition:
+        transform 1.2s cubic-bezier(.2,.8,.2,1);
 
-    to {
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
-
+    font-size: 20px;
+    line-height: 1.7;
 }
 
+.letter.open .letter-paper {
+    transform:
+        translateY(0)
+        rotate(0);
+}
 
+.letter-mark {
+    margin-bottom: 35px;
+
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .16em;
+
+    color: rgba(0,0,0,.42);
+}
 
 .letter h3 {
+    margin-bottom: 35px;
 
-    font-family:"Parisienne",cursive;
+    font-family: var(--script);
+    font-size: 55px;
+    font-weight: 400;
+    line-height: 1;
+}
 
-    font-size:50px;
+.letter p {
+    margin-bottom: 25px;
+}
 
+.letter-signature {
+    margin-top: 45px;
+
+    font-family: var(--script);
+    font-size: 60px;
+
+    text-align: right;
+}
+
+.letter-location {
+    margin-top: 30px;
+
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+
+    text-align: right;
+
+    color: rgba(0,0,0,.42);
 }
 
 
+/* =========================================
+   TERMINAL
+========================================= */
 
-.signature {
+.terminal-section {
+    min-height: 100vh;
 
-    font-family:"Parisienne",cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    font-size:50px;
+    padding: 50px;
 
-    text-align:right;
+    background: #101716;
+}
 
-    margin-top:40px;
+.terminal-window {
+    width: min(700px, 100%);
 
+    border: 1px solid rgba(255,255,255,.12);
+
+    background: #111a18;
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.3);
+}
+
+.terminal-top {
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    padding-left: 13px;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.terminal-top span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.25);
+}
+
+.terminal-body {
+    padding: 35px;
+
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 2;
+
+    color: rgba(255,255,255,.62);
+}
+
+.terminal-body p span {
+    display: inline-block;
+
+    width: 28px;
+
+    color: rgba(255,255,255,.25);
+}
+
+.terminal-success {
+    color: rgba(190,215,202,.8);
+}
+
+.cursor {
+    animation: cursorBlink 1s infinite;
+}
+
+@keyframes cursorBlink {
+    50% {
+        opacity: 0;
+    }
 }
 
 
+/* =========================================
+   MOBILE
+========================================= */
 
+@media (max-width: 700px) {
 
-@media(max-width:700px){
+    .intro-screen {
+        min-height: 100svh;
+    }
 
+    .terminal-intro {
+        top: 5vh;
+        left: 6vw;
+        font-size: 10px;
+    }
 
-.gallery,
-.gallery.two {
+    .terminal-meta {
+        flex-direction: column;
+        gap: 0;
+    }
 
-    grid-template-columns:1fr;
+    .handwritten-title {
+        width: 92vw;
+    }
 
-}
+    .name {
+        font-size: 102px;
+    }
 
+    .amp {
+        font-size: 55px;
+    }
 
-.chapter p {
+    .intro-date {
+        bottom: 18vh;
+    }
 
-    font-size:20px;
+    .start-button {
+        bottom: 8vh;
+    }
 
-}
+    .audio-toggle {
+        right: 5vw;
+        bottom: 3vh;
+    }
 
+    .chapter {
+        padding:
+            13vh
+            7vw
+            15vh;
+    }
 
-.letter {
+    .chapter h2 {
+        font-size: 56px;
+    }
 
-    padding:25px;
+    .chapter-intro {
+        font-size: 20px;
+    }
 
-    font-size:19px;
+    .chapter-nav {
+        right: 8px;
+        gap: 4px;
+    }
 
-}
+    .chapter-nav button {
+        font-size: 8px;
+    }
 
+    .editorial-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
-.letter h3 {
+    .photo.offset,
+    .photo.memory {
+        margin-top: 0;
+    }
 
-    font-size:38px;
+    .photo.large {
+        grid-row: auto;
+    }
 
-}
+    .proposal-grid,
+    .wedding-gallery {
+        grid-template-columns: 1fr;
+    }
 
+    .dress-photo {
+        width: 100%;
+    }
+
+    .adventure-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .adventure-main {
+        grid-row: auto;
+    }
+
+    .adventure-small {
+        width: 80%;
+    }
+
+    .adventure-small.home {
+        margin-left: 20%;
+    }
+
+    .adventure-note {
+        font-size: 22px;
+    }
+
+    .promise blockquote {
+        font-size: 50px;
+    }
+
+    .bottle-section {
+        padding: 12vh 7vw;
+    }
+
+    .bottle-intro h2 {
+        font-size: 57px;
+    }
+
+    .letter {
+        padding: 15px;
+    }
+
+    .letter-paper {
+        max-height: 90vh;
+        padding: 30px 24px;
+        font-size: 18px;
+    }
+
+    .letter h3 {
+        font-size: 42px;
+    }
+
+    .letter-signature {
+        font-size: 50px;
+    }
+
+    .terminal-section {
+        padding: 25px;
+    }
+
+    .terminal-body {
+        padding: 25px 18px;
+        font-size: 9px;
+    }
 
 }
