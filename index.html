@@ -1,551 +1,739 @@
 <!DOCTYPE html>
-<html lang="ru">
-
+<html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>Kirill & Lily — Baltic Sea</title>
-
-<link rel="stylesheet" href="style.css">
-
+<title>family / version 2.0</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Italianno&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+<!-- =========================
+     AMBIENT AUDIO
+========================= -->
 
-<audio id="waves" loop>
+<audio id="waves" loop preload="auto">
     <source src="waves.mp3" type="audio/mpeg">
 </audio>
 
 
-<button class="sound-button" id="soundButton">
-waves
-</button>
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="intro-screen" id="intro">
+
+    <video
+        id="seaVideo"
+        class="sea-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="poster.jpg">
+
+        <source src="sea.mp4" type="video/mp4">
+
+    </video>
+
+    <div class="sea-fallback"></div>
+    <div class="sea-shade"></div>
 
 
+    <div class="terminal-intro">
 
-<main>
+        <div class="terminal-line">
+            <span class="prompt">&gt;</span>
+            repository
+        </div>
 
+        <div class="terminal-line indent">
+            family
+        </div>
 
+        <div class="terminal-meta">
 
-<section class="hero">
+            <span>version 2.0</span>
+            <span>status: stable</span>
 
+        </div>
 
-<video 
-class="sea-video"
-autoplay
-muted
-loop
-playsinline
-poster="poster.jpg">
-
-<source src="sea.mp4" type="video/mp4">
-
-</video>
-
-
-<div class="overlay"></div>
+    </div>
 
 
+    <!-- SVG handwriting -->
 
-<div class="hero-content">
+    <div class="handwritten-title">
 
+        <svg
+            viewBox="0 0 600 330"
+            aria-label="Kirill and Lily">
 
-<p class="intro">
-a story written by time
-</p>
+            <text class="name name-kirill"
+                x="300"
+                y="100">
+                Kirill
+            </text>
 
+            <text class="amp"
+                x="300"
+                y="165">
+                &
+            </text>
 
-<h1 class="handwritten">
+            <text class="name name-lily"
+                x="300"
+                y="245">
+                Lily
+            </text>
 
-<span>Kirill</span>
-<br>
-<span>&</span>
-<br>
-<span>Lily</span>
+        </svg>
 
-</h1>
-
-
-<div class="hero-date">
-
-08.08.26
-
-<br>
-
-Baltic Sea
-
-</div>
-
-
-<button class="enter-button">
-enter story
-</button>
+    </div>
 
 
-</div>
+    <div class="intro-date">
 
+        <span>08.08.26</span>
+        <span>Baltic Sea</span>
+
+    </div>
+
+
+    <button class="start-button" id="startStory">
+
+        <span>enter</span>
+        <span class="arrow">↗</span>
+
+    </button>
+
+
+    <button class="audio-toggle" id="audioToggle">
+        waves / off
+    </button>
 
 </section>
 
 
 
 
+<!-- =========================
+     STORY APP
+========================= -->
 
-<section id="story" class="story">
+<main id="storyApp" class="story-app">
 
 
+    <aside class="chapter-nav">
 
-<div class="chapter">
+        <button data-target="chapter-1">01</button>
+        <button data-target="chapter-2">02</button>
+        <button data-target="chapter-3">03</button>
+        <button data-target="chapter-4">04</button>
+        <button data-target="chapter-5">05</button>
 
-<div class="number">
-I
-</div>
+    </aside>
 
 
-<h2>
-Before we met
-</h2>
+    <div class="story-progress"></div>
 
 
-<p>
-Some stories begin long before
-two people find each other.
-</p>
 
 
-<div class="gallery">
+    <!-- =========================
+         CHAPTER 01
+    ========================== -->
 
+    <section class="chapter" id="chapter-1">
 
-<img src="childhood.jpg">
+        <div class="chapter-header">
 
+            <span class="chapter-code">
+                01 / before
+            </span>
 
-<img src="before-kirill-1.jpg">
+            <h2>Before we met</h2>
 
+            <p class="chapter-intro">
+                Every story has a beginning
+                that happens long before
+                the two main characters meet.
+            </p>
 
-<img src="before-kirill-2.jpg">
+        </div>
 
 
-<img src="alena-lily-max-before.jpg">
+        <div class="editorial-gallery">
 
+            <figure class="photo large">
+                <img src="childhood.jpg" alt="">
+                <figcaption>long before</figcaption>
+            </figure>
 
-</div>
+            <figure class="photo">
+                <img src="before-kirill-1.jpg" alt="">
+            </figure>
 
+            <figure class="photo offset">
+                <img src="before-kirill-2.jpg" alt="">
+            </figure>
 
-</div>
+            <figure class="photo memory">
+                <img src="alena-lily-max-before.jpg" alt="">
+                <figcaption>
+                    before Kirill knew Kirill
+                </figcaption>
+            </figure>
 
+        </div>
 
+    </section>
 
 
 
-<div class="chapter">
 
+    <!-- =========================
+         CHAPTER 02
+    ========================== -->
 
-<div class="number">
-II
-</div>
+    <section class="chapter" id="chapter-2">
 
+        <div class="chapter-header">
 
-<h2>
-The first connection
-</h2>
+            <span class="chapter-code">
+                02 / connection
+            </span>
 
+            <h2>The first connection</h2>
 
-<p>
-They first saw each other
-at the “Mechtay” conference
-in Sochi.
+            <p class="chapter-intro">
 
-A simple moment,
-without knowing what it would become.
-</p>
+                Sochi.
+                The “Mechtay” conference.
 
+                They saw each other,
+                but didn't talk.
 
-<img class="single-photo" src="meeting.jpg">
+                Then came messages,
+                calls,
+                and a surprise trip
+                to Saint Petersburg.
 
+            </p>
 
-<p>
-Later came messages,
-calls,
-and a first real meeting
-in Saint Petersburg.
+        </div>
 
-Kirill arrived as a surprise.
-</p>
 
+        <div class="single-feature">
 
-<img class="single-photo" src="funny-memory.jpg">
+            <img src="meeting.jpg" alt="">
 
+            <span>
+                first real meeting / Saint Petersburg
+            </span>
 
-</div>
+        </div>
 
 
+        <div class="story-text">
 
+            <p>
+                Sometimes the beginning
+                doesn't look like a beginning.
+            </p>
 
+            <p>
+                You only understand it later.
+            </p>
 
+        </div>
 
 
-<div class="chapter">
+        <div class="single-feature narrow">
 
+            <img src="funny-memory.jpg" alt="">
 
-<div class="number">
-III
-</div>
+        </div>
 
+    </section>
 
-<h2>
-Choosing forever
-</h2>
 
 
 
-<div class="gallery two">
+    <!-- =========================
+         CHAPTER 03
+    ========================== -->
 
+    <section class="chapter" id="chapter-3">
 
-<img src="proposal-1.jpg">
+        <div class="chapter-header">
 
-<img src="proposal-2.jpg">
+            <span class="chapter-code">
+                03 / choosing
+            </span>
 
+            <h2>Choosing forever</h2>
 
-</div>
+            <p class="chapter-intro">
 
+                Saint Petersburg again.
 
-<p>
-Saint Petersburg became special again.
+                This time,
+                with a question
+                that changed everything.
 
-This time with a question
-that changed everything.
-</p>
+            </p>
 
+        </div>
 
 
-<img class="single-photo" src="dress.jpg">
+        <div class="proposal-grid">
 
+            <img src="proposal-1.jpg" alt="">
+            <img src="proposal-2.jpg" alt="">
 
+        </div>
 
-</div>
 
+        <div class="dress-photo">
 
+            <img src="dress.jpg" alt="">
 
+            <span>
+                becoming real
+            </span>
 
+        </div>
 
+    </section>
 
 
 
-<div class="chapter">
 
+    <!-- =========================
+         CHAPTER 04
+    ========================== -->
 
-<div class="number">
-IV
-</div>
+    <section class="chapter" id="chapter-4">
 
+        <div class="chapter-header">
 
-<h2>
-Adventures
-</h2>
+            <span class="chapter-code">
+                04 / adventures
+            </span>
 
+            <h2>Adventures</h2>
 
+            <p class="chapter-intro">
 
-<div class="gallery">
+                With each other,
+                life became wider.
 
+                New places.
+                First flights.
+                New interests.
+                A first home together.
 
-<img src="vladivostok.jpg">
+            </p>
 
+        </div>
 
-<img src="first-flight.jpg">
 
+        <div class="adventure-layout">
 
-<img src="kaliningrad-home.jpg">
+            <figure class="adventure-main">
 
+                <img src="vladivostok.jpg" alt="">
 
-</div>
+                <figcaption>
+                    Vladivostok
+                </figcaption>
 
+            </figure>
 
 
-<p>
-With each other,
-life became wider.
+            <figure class="adventure-small flight">
 
-New places.
-First flights.
-New homes.
+                <img src="first-flight.jpg" alt="">
 
-Small moments
-that became memories.
-</p>
+                <figcaption>
+                    first flight
+                </figcaption>
 
+            </figure>
 
 
-</div>
+            <figure class="adventure-small home">
 
+                <img src="kaliningrad-home.jpg" alt="">
 
+                <figcaption>
+                    first home / Kaliningrad
+                </figcaption>
 
+            </figure>
 
+        </div>
 
 
+        <p class="adventure-note">
 
+            And somehow,
+            these little moments
+            became the beginning
+            of a life together.
 
-<div class="chapter">
+        </p>
 
+    </section>
 
-<div class="number">
-V
-</div>
 
 
-<h2>
-New chapter
-</h2>
 
+    <!-- =========================
+         CHAPTER 05
+    ========================== -->
 
+    <section class="chapter final-chapter" id="chapter-5">
 
-<div class="gallery wedding">
+        <div class="chapter-header">
 
+            <span class="chapter-code">
+                05 / deployed
+            </span>
 
-<img src="wedding-1.jpg">
+            <h2>New chapter</h2>
 
-<img src="wedding-2.jpg">
+            <p class="chapter-intro">
 
-<img src="wedding-3.jpg">
+                08.08.26
 
-<img src="wedding-4.jpg">
+            </p>
 
+        </div>
 
-</div>
 
+        <div class="wedding-gallery">
 
+            <img src="wedding-1.jpg" alt="">
+            <img src="wedding-2.jpg" alt="">
+            <img src="wedding-3.jpg" alt="">
+            <img src="wedding-4.jpg" alt="">
 
-<p>
-A new chapter begins.
+        </div>
 
-The story continues.
-</p>
 
+        <div class="commit-block">
 
+            <span>commit</span>
 
-</div>
+            <code>
+                08.08.26
+            </code>
 
+            <p>
+                building a life together
+            </p>
 
+        </div>
 
 
-</section>
+        <p class="final-line">
+            The best is yet to come.
+        </p>
 
+    </section>
 
 
 
 
+    <!-- =========================
+         BIBLE
+    ========================== -->
 
+    <section class="promise">
 
-<section class="promise">
+        <div class="promise-inner">
 
+            <span class="chapter-code">
+                a promise
+            </span>
 
-<div class="promise-inner">
+            <blockquote>
+                «Любовь никогда
+                не перестаёт.»
+            </blockquote>
 
+            <cite>
+                1 Коринфянам 13:8
+            </cite>
 
-<h2>
-Love never fails
-</h2>
+        </div>
 
+    </section>
 
-<p class="bible">
 
-«Любовь никогда не перестаёт.»
 
-</p>
 
+    <!-- =========================
+         BOTTLE
+    ========================== -->
 
-<p>
-1 Коринфянам 13:8
-</p>
+    <section class="bottle-section" id="bottle">
 
 
+        <div class="bottle-intro">
 
-<p>
-May God bless your family,
-your dreams and your journey together.
-</p>
+            <span class="chapter-code">
+                found / Baltic Sea
+            </span>
 
+            <h2>
+                A message
+                from the shore.
+            </h2>
 
+            <p>
+                Some things are worth
+                keeping forever.
+            </p>
 
-</div>
+        </div>
 
 
-</section>
+        <div class="bottle-scene">
 
 
+            <div class="water-glow"></div>
 
 
+            <!-- Bottle -->
 
+            <button
+                class="bottle"
+                id="bottleButton"
+                aria-label="Open the bottle">
 
+                <span class="bottle-neck"></span>
 
+                <span class="bottle-body">
 
+                    <span class="bottle-paper"></span>
 
-<section class="bottle-section" id="bottle">
+                </span>
 
+                <span class="bottle-cork"></span>
 
+            </button>
 
-<div class="shore-message">
 
+            <span class="bottle-hint">
+                touch to open
+            </span>
 
-<p>
-a message found on the Baltic shore
-</p>
 
+        </div>
 
-<div class="bottle">
 
-</div>
 
 
+        <!-- Letter -->
 
-<button class="open-bottle">
+        <article class="letter" id="letter">
 
-open the message
+            <div class="letter-paper">
 
-</button>
+                <div class="letter-mark">
+                    08 / 08 / 26
+                </div>
 
 
-</div>
+                <h3>
+                    Родные Кирилл и Лили,
+                </h3>
 
 
+                <p>
+                    Иногда удивительно смотреть,
+                    как два человека приходят
+                    в жизнь друг друга именно тогда,
+                    когда это действительно нужно.
+                </p>
 
 
+                <p>
+                    У каждого из вас уже была
+                    своя история.
+                </p>
 
 
-<div class="letter">
+                <p>
+                    Были разные моменты,
+                    решения и опыт,
+                    которые сделали вас теми,
+                    кем вы стали сегодня.
+                </p>
 
 
-<h3>
-Родные Кирилл и Лили,
-</h3>
+                <p>
+                    И особенно красиво видеть,
+                    как рядом друг с другом
+                    вы открываете новые стороны жизни.
+                </p>
 
 
+                <p>
+                    Лиля, рядом с Кириллом
+                    ты стала ещё более ответственной,
+                    но при этом более лёгкой
+                    и спокойной.
+                </p>
 
-<p>
-Иногда удивительно смотреть,
-как два человека приходят
-в жизнь друг друга именно тогда,
-когда это действительно нужно.
-</p>
 
+                <p>
+                    Кирилл, рядом с Лилей
+                    ты открыл новые места,
+                    новые увлечения
+                    и новые радости.
+                </p>
 
 
-<p>
-У каждого из вас уже была
-своя история.
+                <p>
+                    Очень ценно видеть,
+                    как любовь не меняет человека,
+                    а помогает ему стать
+                    ещё больше собой.
+                </p>
 
-Были разные моменты,
-решения и опыт,
-которые сделали вас теми,
-кем вы стали сегодня.
-</p>
 
+                <p>
+                    Спасибо вам за вашу историю.
+                </p>
 
 
-<p>
-И особенно красиво видеть,
-как рядом друг с другом
-вы открываете новые стороны жизни.
-</p>
+                <p>
+                    Благодаря вам мы сами открыли
+                    для себя новое место
+                    и отправились в Калининград,
+                    который стал частью
+                    уже нашей собственной истории.
+                </p>
 
 
+                <p>
+                    Пусть впереди у вас будет
+                    много путешествий,
+                    мечт,
+                    семейных традиций
+                    и счастливых дней.
+                </p>
 
-<p>
-Лиля, рядом с Кириллом
-ты стала ещё более ответственной,
-но при этом более лёгкой
-и спокойной.
-</p>
 
+                <p>
+                    Пусть Бог хранит вашу семью.
+                </p>
 
 
-<p>
-Кирилл, рядом с Лилей
-ты открыл новые места,
-новые увлечения
-и новые радости.
-</p>
+                <div class="letter-signature">
+                    M & A
+                </div>
 
 
+                <div class="letter-location">
+                    Baltic Sea<br>
+                    08.08.26
+                </div>
 
-<p>
-Очень ценно видеть,
-как любовь не меняет человека,
-а помогает ему стать ещё больше собой.
-</p>
+            </div>
 
+        </article>
 
+    </section>
 
-<p>
-Спасибо вам за вашу историю.
 
-Благодаря вам мы сами открыли
-для себя новое место
-и отправились в Калининград,
-который стал частью
-уже нашей собственной истории.
-</p>
 
 
+    <!-- =========================
+         TERMINAL EASTER EGG
+    ========================== -->
 
-<p>
-Пусть впереди у вас будет
-много путешествий,
-мечт,
-семейных традиций
-и счастливых дней.
-</p>
+    <section class="terminal-section">
 
+        <div class="terminal-window">
 
+            <div class="terminal-top">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
-<p>
-Пусть Бог хранит вашу семью.
-</p>
 
+            <div class="terminal-body">
 
+                <p>
+                    $ git log --oneline
+                </p>
 
-<div class="signature">
+                <p>
+                    <span>01</span>
+                    first-meeting / sochi
+                </p>
 
-M & A
+                <p>
+                    <span>02</span>
+                    first-real-date / saint-petersburg
+                </p>
 
-</div>
+                <p>
+                    <span>03</span>
+                    proposal / saint-petersburg
+                </p>
 
+                <p>
+                    <span>04</span>
+                    adventures / world
+                </p>
 
-<div class="location">
+                <p>
+                    <span>05</span>
+                    home / kaliningrad
+                </p>
 
-Baltic Sea
-<br>
-08.08.26
+                <p>
+                    <span>06</span>
+                    marriage / 08.08.26
+                </p>
 
-</div>
+                <br>
 
+                <p class="terminal-success">
+                    version 2.0 deployed successfully.
+                </p>
 
-</div>
+                <p class="cursor">
+                    _
+                </p>
 
+            </div>
 
+        </div>
 
-</section>
-
-
-
+    </section>
 
 
 </main>
 
 
-
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
