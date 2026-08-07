@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Kirill & Lily — Baltic Sea</title>
 
 <link rel="stylesheet" href="style.css">
+
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +18,9 @@
 
 </head>
 
+
 <body>
+
 
 <audio id="waves" loop>
     <source src="waves.mp3" type="audio/mpeg">
@@ -23,14 +28,17 @@
 
 
 <button class="sound-button" id="soundButton">
-    waves
+waves
 </button>
+
 
 
 <main>
 
 
+
 <section class="hero">
+
 
 <video 
 class="sea-video"
@@ -48,92 +56,104 @@ poster="poster.jpg">
 <div class="overlay"></div>
 
 
+
 <div class="hero-content">
 
-<p class="small-title">
-a story written by two hearts
+
+<p class="intro">
+a story written by time
 </p>
 
 
-<h1>
-Kirill
+<h1 class="handwritten">
+
+<span>Kirill</span>
+<br>
 <span>&</span>
-Lily
+<br>
+<span>Lily</span>
+
 </h1>
 
 
-<div class="date">
+<div class="hero-date">
+
 08.08.26
+
 <br>
+
 Baltic Sea
+
 </div>
 
 
-<button class="enter-button" onclick="startStory()">
-enter
+<button class="enter-button">
+enter story
 </button>
 
 
 </div>
 
+
 </section>
 
 
 
-<nav class="navigation">
 
-<a href="#story">story</a>
-<a href="#memories">memories</a>
-<a href="#promise">promise</a>
-<a href="#bottle">bottle</a>
 
-</nav>
 <section id="story" class="story">
+
+
 
 <div class="chapter">
 
-<p class="chapter-number">
-Chapter I
-</p>
+<div class="number">
+I
+</div>
+
 
 <h2>
 Before we met
 </h2>
 
-<p>
-Some stories begin long before we realize it.
-</p>
-
-<div class="photo-grid">
-
-<img src="childhood.jpg" alt="Childhood">
-
-</div>
 
 <p>
-Two paths, two lives,
-and many moments that shaped
-the people you became.
+Some stories begin long before
+two people find each other.
 </p>
 
 
-<div class="photo-grid two">
+<div class="gallery">
 
-<img src="before-kirill-1.jpg" alt="">
-<img src="before-kirill-2.jpg" alt="">
+
+<img src="childhood.jpg">
+
+
+<img src="before-kirill-1.jpg">
+
+
+<img src="before-kirill-2.jpg">
+
+
+<img src="alena-lily-max-before.jpg">
+
 
 </div>
 
 
 </div>
+
+
 
 
 
 <div class="chapter">
 
-<p class="chapter-number">
-Chapter II
-</p>
+
+<div class="number">
+II
+</div>
+
 
 <h2>
 The first connection
@@ -141,30 +161,29 @@ The first connection
 
 
 <p>
-It started in Sochi,
-at the “Mechtay” conference.
+They first saw each other
+at the “Mechtay” conference
+in Sochi.
 
-A simple meeting that seemed ordinary
-at the time.
+A simple moment,
+without knowing what it would become.
 </p>
 
 
-<img src="meeting.jpg" class="chapter-photo" alt="">
+<img class="single-photo" src="meeting.jpg">
 
 
 <p>
 Later came messages,
-long conversations,
-and the first real meeting
+calls,
+and a first real meeting
 in Saint Petersburg.
 
-A surprise visit
-that became the beginning
-of something beautiful.
+Kirill arrived as a surprise.
 </p>
 
 
-<img src="funny-memory.jpg" class="chapter-photo" alt="">
+<img class="single-photo" src="funny-memory.jpg">
 
 
 </div>
@@ -172,57 +191,84 @@ of something beautiful.
 
 
 
+
+
+
 <div class="chapter">
 
-<p class="chapter-number">
-Chapter III
-</p>
+
+<div class="number">
+III
+</div>
+
 
 <h2>
 Choosing forever
 </h2>
 
 
-<div class="photo-grid two">
 
-<img src="proposal-1.jpg" alt="">
-<img src="proposal-2.jpg" alt="">
+<div class="gallery two">
+
+
+<img src="proposal-1.jpg">
+
+<img src="proposal-2.jpg">
+
 
 </div>
 
 
 <p>
-Saint Petersburg became special once again.
+Saint Petersburg became special again.
 
 This time with a question
 that changed everything.
 </p>
 
 
-<img src="dress.jpg" class="chapter-photo" alt="">
 
+<img class="single-photo" src="dress.jpg">
 
-<p>
-A dream slowly became reality.
-</p>
 
 
 </div>
 
 
 
+
+
+
+
+
 <div class="chapter">
 
-<p class="chapter-number">
-Chapter IV
-</p>
+
+<div class="number">
+IV
+</div>
+
 
 <h2>
 Adventures
 </h2>
 
 
-<img src="vladivostok.jpg" class="chapter-photo" alt="">
+
+<div class="gallery">
+
+
+<img src="vladivostok.jpg">
+
+
+<img src="first-flight.jpg">
+
+
+<img src="kaliningrad-home.jpg">
+
+
+</div>
+
 
 
 <p>
@@ -230,59 +276,79 @@ With each other,
 life became wider.
 
 New places.
-New interests.
-New memories.
+First flights.
+New homes.
 
-The beginning of many adventures ahead.
+Small moments
+that became memories.
 </p>
+
 
 
 </div>
 
 
 
+
+
+
+
+
 <div class="chapter">
 
-<p class="chapter-number">
-Chapter V
-</p>
+
+<div class="number">
+V
+</div>
+
 
 <h2>
 New chapter
 </h2>
 
 
-<div class="photo-grid wedding">
 
-<img src="wedding-1.jpg" alt="">
-<img src="wedding-2.jpg" alt="">
-<img src="wedding-3.jpg" alt="">
-<img src="wedding-4.jpg" alt="">
+<div class="gallery wedding">
+
+
+<img src="wedding-1.jpg">
+
+<img src="wedding-2.jpg">
+
+<img src="wedding-3.jpg">
+
+<img src="wedding-4.jpg">
+
 
 </div>
+
 
 
 <p>
 A new chapter begins.
 
-Not because the story is finished,
-but because the best pages
-are still waiting to be written.
+The story continues.
 </p>
+
 
 
 </div>
 
 
+
+
 </section>
-<section id="promise" class="promise">
 
 
-<div class="promise-card">
 
-<p class="chapter-number">
-Promise
-</p>
+
+
+
+
+<section class="promise">
+
+
+<div class="promise-inner">
 
 
 <h2>
@@ -291,25 +357,23 @@ Love never fails
 
 
 <p class="bible">
+
 «Любовь никогда не перестаёт.»
+
 </p>
 
 
-<p class="verse">
+<p>
 1 Коринфянам 13:8
 </p>
 
 
-<p>
-May your home always be filled
-with love, faith and kindness.
-</p>
-
 
 <p>
-May God guide your journey
-and bless your family.
+May God bless your family,
+your dreams and your journey together.
 </p>
+
 
 
 </div>
@@ -321,19 +385,49 @@ and bless your family.
 
 
 
-<section id="bottle" class="bottle-section">
 
 
-<div class="bottle-wrapper">
+
+
+<section class="bottle-section" id="bottle">
+
+
+
+<div class="shore-message">
+
+
+<p>
+a message found on the Baltic shore
+</p>
 
 
 <div class="bottle">
 
-<div class="paper">
+</div>
 
-<p class="letter-title">
+
+
+<button class="open-bottle">
+
+open the message
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="letter">
+
+
+<h3>
 Родные Кирилл и Лили,
-</p>
+</h3>
+
 
 
 <p>
@@ -342,6 +436,7 @@ and bless your family.
 в жизнь друг друга именно тогда,
 когда это действительно нужно.
 </p>
+
 
 
 <p>
@@ -355,11 +450,13 @@ and bless your family.
 </p>
 
 
+
 <p>
 И особенно красиво видеть,
 как рядом друг с другом
 вы открываете новые стороны жизни.
 </p>
+
 
 
 <p>
@@ -370,12 +467,14 @@ and bless your family.
 </p>
 
 
+
 <p>
 Кирилл, рядом с Лилей
 ты открыл новые места,
 новые увлечения
 и новые радости.
 </p>
+
 
 
 <p>
@@ -385,9 +484,9 @@ and bless your family.
 </p>
 
 
+
 <p>
-Спасибо вам за то,
-что ваша история вдохновляет.
+Спасибо вам за вашу историю.
 
 Благодаря вам мы сами открыли
 для себя новое место
@@ -397,55 +496,41 @@ and bless your family.
 </p>
 
 
+
 <p>
 Пусть впереди у вас будет
 много путешествий,
-новых мечтаний,
+мечт,
 семейных традиций
-и простых счастливых дней.
+и счастливых дней.
 </p>
+
 
 
 <p>
-Пусть Бог хранит вашу семью,
-даёт мудрость,
-любовь и радость
-идти этот путь вместе.
+Пусть Бог хранит вашу семью.
 </p>
 
 
-<p>
-Берегите то удивительное чувство,
-которое у вас есть сейчас.
-</p>
 
+<div class="signature">
 
-<p class="signature">
-С любовью,
-<br>
 M & A
-</p>
+
+</div>
 
 
-<p class="location">
+<div class="location">
+
 Baltic Sea
 <br>
 08.08.26
-</p>
-
 
 </div>
 
 
 </div>
 
-
-<button class="open-bottle">
-open
-</button>
-
-
-</div>
 
 
 </section>
@@ -453,20 +538,14 @@ open
 
 
 
-<footer>
-
-<p>
-Made with love by friends
-</p>
-
-</footer>
-
 
 </main>
+
 
 
 <script src="script.js"></script>
 
 
 </body>
+
 </html>
