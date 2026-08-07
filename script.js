@@ -1,119 +1,176 @@
-const soundButton = document.getElementById("soundButton");
 const waves = document.getElementById("waves");
+const soundButton = document.getElementById("soundButton");
 
-let soundOn = false;
+let soundEnabled = false;
 
+
+
+// Волны
 
 soundButton.addEventListener("click", () => {
 
-    if (!soundOn) {
+    if (!soundEnabled) {
 
         waves.volume = 0;
         waves.play();
 
         let volume = 0;
 
-        const fadeIn = setInterval(() => {
+        const fade = setInterval(() => {
 
-            if (volume < 0.35) {
-                volume += 0.02;
-                waves.volume = volume;
-            } else {
-                clearInterval(fadeIn);
+            volume += 0.02;
+
+            if (volume >= 0.35) {
+
+                volume = 0.35;
+                clearInterval(fade);
+
             }
 
-        }, 100);
+            waves.volume = volume;
+
+        },100);
 
 
         soundButton.textContent = "waves on";
-        soundOn = true;
+
+        soundEnabled = true;
 
 
     } else {
 
+
         waves.pause();
+
         soundButton.textContent = "waves";
-        soundOn = false;
+
+        soundEnabled = false;
+
 
     }
 
-});
-
-
-
-
-
-function startStory(){
-
-    document
-    .getElementById("story")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-
-
-
-
-const observer = new IntersectionObserver(
-(entries)=>{
-
-entries.forEach(entry=>{
-
-    if(entry.isIntersecting){
-
-        entry.target.style.opacity="1";
-        entry.target.style.transform="translateY(0)";
-
-    }
-
-});
-
-},
-{
-    threshold:0.15
-});
-
-
-
-document.querySelectorAll(".chapter, .promise-card, .paper")
-.forEach(el=>{
-
-    el.style.opacity="0";
-    el.style.transform="translateY(40px)";
-    el.style.transition="1.2s ease";
-
-    observer.observe(el);
 
 });
 
 
 
 
+
+
+// Переход в историю
+
+const enterButton = document.querySelector(".enter-button");
+
+
+enterButton.addEventListener("click",()=>{
+
+
+document
+.querySelector("#story")
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+
+});
+
+
+
+
+
+
+
+// Бутылка
 
 const bottleButton = document.querySelector(".open-bottle");
-const paper = document.querySelector(".paper");
 
+const bottle = document.querySelector(".bottle");
 
-if(bottleButton){
+const letter = document.querySelector(".letter");
 
-paper.style.opacity="0";
-paper.style.transform="scale(.95)";
 
 
 bottleButton.addEventListener("click",()=>{
 
 
-    paper.style.opacity="1";
-    paper.style.transform="scale(1)";
+bottle.style.transform =
+"scale(1.1) rotate(-10deg)";
 
 
-    bottleButton.style.opacity="0";
-    bottleButton.style.pointerEvents="none";
+bottle.style.opacity="0";
+
+
+setTimeout(()=>{
+
+
+letter.classList.add("show");
+
+
+bottleButton.style.display="none";
+
+
+},1000);
+
 
 
 });
 
+
+
+
+
+
+// Плавное появление глав
+
+
+const elements =
+document.querySelectorAll(".chapter, .promise-inner");
+
+
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
+
 }
+
+
+});
+
+
+},
+{
+threshold:.15
+});
+
+
+
+
+elements.forEach(el=>{
+
+
+el.style.opacity="0";
+
+el.style.transform="translateY(40px)";
+
+el.style.transition="1.2s ease";
+
+
+observer.observe(el);
+
+
+});
