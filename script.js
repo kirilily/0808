@@ -91,9 +91,3 @@ document
 
 
 }
-<style>
-
-</style>
-<script>
-
-</script>
