@@ -1,0 +1,396 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+
+    background: black;
+    color: white;
+
+    font-family: 'Inter', sans-serif;
+
+}
+
+
+
+.background {
+
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+}
+
+
+.background video {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+
+.overlay {
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, .35),
+            rgba(0, 0, 0, .65));
+
+}
+
+
+
+
+
+.screen,
+.terminal-screen {
+
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+
+}
+
+
+
+.screen.active,
+.terminal-screen.active {
+
+    opacity: 1;
+    pointer-events: auto;
+
+    transform: none;
+
+}
+
+
+
+
+.content {
+
+    text-align: center;
+    padding: 25px;
+
+}
+
+
+
+
+.small-code,
+.label {
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    opacity: .7;
+
+    text-transform: uppercase;
+
+}
+
+
+
+
+
+.signature {
+
+    width: 100%;
+    max-width: 450px;
+
+    margin: 25px auto;
+
+}
+
+
+
+
+.signature svg {
+
+    width: 100%;
+    overflow: visible;
+
+}
+
+
+
+.signature text {
+
+    font-family: 'Allura', cursive;
+
+    font-size: 115px;
+
+    fill: none;
+
+    stroke: white;
+
+    stroke-width: 1.5;
+
+    stroke-dasharray: 900;
+
+    stroke-dashoffset: 900;
+
+    animation: write 3.5s ease forwards;
+
+}
+
+
+
+.signature .amp {
+
+    font-size: 70px;
+
+    animation-delay: 1.5s;
+
+}
+
+
+
+.signature .second {
+
+    animation-delay: 2.2s;
+
+}
+
+
+
+
+@keyframes write {
+
+    0% {
+
+        stroke-dashoffset: 900;
+        opacity: 0;
+
+    }
+
+
+    20% {
+
+        opacity: 1;
+
+    }
+
+
+    100% {
+
+        stroke-dashoffset: 0;
+        opacity: 1;
+
+    }
+
+}
+
+
+
+
+
+.date {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 28px;
+
+    line-height: 1.3;
+
+    margin-top: 25px;
+
+    opacity: 0;
+
+    animation: show 2s ease forwards;
+
+    animation-delay: 4s;
+
+}
+
+
+
+.fade {
+
+    opacity: 0;
+
+    animation: show 1.5s ease forwards;
+
+    animation-delay: 5s;
+
+}
+
+
+
+
+@keyframes show {
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+
+
+h2 {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-weight: 300;
+
+    font-size: 60px;
+
+    margin: 20px;
+
+}
+
+
+
+
+p {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 32px;
+
+    font-weight: 300;
+
+}
+
+
+
+
+
+button {
+
+    background: none;
+
+    border:
+
+        1px solid rgba(255, 255, 255, .5);
+
+    color: white;
+
+    padding: 14px 35px;
+
+    border-radius: 50px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+}
+
+
+
+
+
+.signature-text {
+
+    font-family: 'Allura', cursive;
+
+    font-size: 70px;
+
+    margin: 35px;
+
+}
+
+
+
+
+.quote {
+
+    font-style: italic;
+
+    line-height: 1.5;
+
+}
+
+
+
+
+
+.terminal-window {
+
+    background: rgba(0, 0, 0, .7);
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    width: 85%;
+
+    font-family: monospace;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+}
+
+
+
+
+
+@media(max-width:600px) {
+
+
+    .signature {
+
+        max-width: 350px;
+
+    }
+
+
+    .signature text {
+
+        font-size: 100px;
+
+    }
+
+
+    h2 {
+
+        font-size: 45px;
+
+    }
+
+
+    p {
+
+        font-size: 25px;
+
+    }
+
+
+    .signature-text {
+
+        font-size: 55px;
+
+    }
+
+}
