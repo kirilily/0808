@@ -1,176 +1,44 @@
-const waves = document.getElementById("waves");
-const soundButton = document.getElementById("soundButton");
+document.addEventListener("DOMContentLoaded", () => {
 
-let soundEnabled = false;
+    const video = document.getElementById("seaVideo");
+    const audio = document.getElementById("waves");
 
+    const audioToggle = document.getElementById("audioToggle");
+    const startButton = document.getElementById("startStory");
 
+    const intro = document.getElementById("intro");
+    const storyApp = document.getElementById("storyApp");
 
-// Волны
+    const bottle = document.getElementById("bottleButton");
+    const letter = document.getElementById("letter");
 
-soundButton.addEventListener("click", () => {
+    const navButtons =
+        document.querySelectorAll(".chapter-nav button");
 
-    if (!soundEnabled) {
+    const chapters =
+        document.querySelectorAll(".chapter");
 
-        waves.volume = 0;
-        waves.play();
 
-        let volume = 0;
 
-        const fade = setInterval(() => {
+    /* =====================================
+       SEA VIDEO
+    ===================================== */
 
-            volume += 0.02;
+    if (video) {
 
-            if (volume >= 0.35) {
+        const showVideo = () => {
+            video.classList.add("ready");
+        };
 
-                volume = 0.35;
-                clearInterval(fade);
+        if (video.readyState >= 3) {
+            showVideo();
+        }
 
-            }
+        video.addEventListener("canplay", showVideo);
 
-            waves.volume = volume;
+        video.addEventListener("loadeddata", showVideo);
 
-        },100);
-
-
-        soundButton.textContent = "waves on";
-
-        soundEnabled = true;
-
-
-    } else {
-
-
-        waves.pause();
-
-        soundButton.textContent = "waves";
-
-        soundEnabled = false;
-
-
-    }
-
-
-});
-
-
-
-
-
-
-// Переход в историю
-
-const enterButton = document.querySelector(".enter-button");
-
-
-enterButton.addEventListener("click",()=>{
-
-
-document
-.querySelector("#story")
-.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-
-});
-
-
-
-
-
-
-
-// Бутылка
-
-const bottleButton = document.querySelector(".open-bottle");
-
-const bottle = document.querySelector(".bottle");
-
-const letter = document.querySelector(".letter");
-
-
-
-bottleButton.addEventListener("click",()=>{
-
-
-bottle.style.transform =
-"scale(1.1) rotate(-10deg)";
-
-
-bottle.style.opacity="0";
-
-
-setTimeout(()=>{
-
-
-letter.classList.add("show");
-
-
-bottleButton.style.display="none";
-
-
-},1000);
-
-
-
-});
-
-
-
-
-
-
-// Плавное появление глав
-
-
-const elements =
-document.querySelectorAll(".chapter, .promise-inner");
-
-
-
-const observer =
-new IntersectionObserver(
-(entries)=>{
-
-
-entries.forEach(entry=>{
-
-
-if(entry.isIntersecting){
-
-
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
-
-
-}
-
-
-});
-
-
-},
-{
-threshold:.15
-});
-
-
-
-
-elements.forEach(el=>{
-
-
-el.style.opacity="0";
-
-el.style.transform="translateY(40px)";
-
-el.style.transition="1.2s ease";
-
-
-observer.observe(el);
-
-
-});
+        /*
+         * Safari / iPhone иногда блокирует autoplay.
+         * Видео всё равно остаётся muted, поэтому
+         * пробуем зап
