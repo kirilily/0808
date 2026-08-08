@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -10,31 +9,19 @@
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     >
 
-    <meta
-        name="theme-color"
-        content="#102a2d"
-    >
+    <meta name="theme-color" content="#102a2d">
 
     <title>Kirill & Lily — family / version 2.0</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Mono:wght@300;400&family=Italianno&display=swap"
         rel="stylesheet"
     >
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
@@ -42,45 +29,18 @@
 
 
 <!-- ==================================================
-     AUDIO
-================================================== -->
-
-<audio
-    id="waves"
-    loop
-    preload="auto"
->
-
-    <source
-        src="waves.mp3"
-        type="audio/mpeg"
-    >
-
-</audio>
-
-
-
-<!-- ==================================================
      INTRO
 ================================================== -->
 
-<section
-    class="intro"
-    id="intro"
->
-
-
-    <!-- SEA -->
+<section class="intro" id="intro">
 
     <div class="sea-background">
-
 
         <img
             class="sea-poster"
             src="poster.jpg"
             alt=""
         >
-
 
         <video
             id="seaVideo"
@@ -93,23 +53,13 @@
             preload="auto"
             poster="poster.jpg"
         >
-
-            <source
-                src="sea.mp4"
-                type="video/mp4"
-            >
-
+            <source src="sea.mp4" type="video/mp4">
         </video>
-
 
         <div class="sea-overlay"></div>
 
-
     </div>
 
-
-
-    <!-- TERMINAL -->
 
     <div class="intro-terminal">
 
@@ -123,24 +73,15 @@
 
         <div class="terminal-meta">
 
-            <span>
-                build: 2.0
-            </span>
-
-            <span>
-                status: forever
-            </span>
+            <span>build: 2.0</span>
+            <span>status: forever</span>
 
         </div>
 
     </div>
 
 
-
-    <!-- NAMES -->
-
     <div class="handwritten-title">
-
 
         <svg
             viewBox="0 0 900 230"
@@ -155,7 +96,6 @@
                 Kirill
             </text>
 
-
             <text
                 class="amp"
                 x="450"
@@ -163,7 +103,6 @@
             >
                 &
             </text>
-
 
             <text
                 class="name name-lily"
@@ -175,59 +114,52 @@
 
         </svg>
 
-
     </div>
 
-
-
-    <!-- DATE -->
 
     <div class="intro-date">
 
-        <span>
-            08.08.26
-        </span>
-
-        <span>
-            Baltic Sea
-        </span>
+        <span>08.08.26</span>
+        <span>Baltic Sea</span>
 
     </div>
 
-
-
-    <!-- ENTER -->
 
     <button
         class="start-button"
         id="startStory"
         type="button"
     >
-
         press enter
-
-        <span class="arrow">
-            →
-        </span>
-
+        <span class="arrow">→</span>
     </button>
 
-
-
-    <!-- SOUND -->
 
     <button
         class="audio-toggle"
         id="audioToggle"
         type="button"
     >
-
         sound / off
-
     </button>
 
-
 </section>
+
+
+
+
+
+<!-- ==================================================
+     AUDIO
+================================================== -->
+
+<audio
+    id="waves"
+    loop
+    preload="auto"
+>
+    <source src="waves.mp3" type="audio/mpeg">
+</audio>
 
 
 
@@ -237,15 +169,11 @@
      STORY
 ================================================== -->
 
-<main
-    class="story-app"
-    id="storyApp"
->
-
+<main class="story-app" id="storyApp">
 
 
 <!-- ==================================================
-     CHAPTER NAVIGATION
+     NAVIGATION
 ================================================== -->
 
 <nav
@@ -261,14 +189,12 @@
         01
     </button>
 
-
     <button
         type="button"
         data-chapter="chapter02"
     >
         02
     </button>
-
 
     <button
         type="button"
@@ -277,14 +203,12 @@
         03
     </button>
 
-
     <button
         type="button"
         data-chapter="chapter04"
     >
         04
     </button>
-
 
     <button
         type="button"
@@ -293,7 +217,6 @@
         05
     </button>
 
-
     <button
         type="button"
         data-chapter="promise"
@@ -301,14 +224,12 @@
         ∞
     </button>
 
-
     <button
         type="button"
         data-chapter="bottleSection"
     >
         06
     </button>
-
 
     <button
         type="button"
@@ -324,8 +245,7 @@
 
 
 <!-- ==================================================
-     CHAPTER 01
-     BEFORE
+     CHAPTER 01 — BEFORE
 ================================================== -->
 
 <section
@@ -333,18 +253,15 @@
     id="chapter01"
 >
 
-
     <header class="chapter-header reveal">
 
         <span class="chapter-code">
             01 / before
         </span>
 
-
         <h2>
             Before
         </h2>
-
 
         <p class="chapter-intro">
             Before Kirill & Lily,
@@ -354,16 +271,15 @@
     </header>
 
 
-
     <div class="editorial-gallery reveal">
 
 
-        <!-- LILY + ALENA CHILDHOOD -->
+        <!-- ЛИЛЯ + АЛЁНА В ДЕТСТВЕ -->
 
         <figure class="photo large">
 
             <img
-                src="lily_alena_childhood.jpg"
+                src="lily_alena_childhood.jpeg"
                 alt="Лиля и Алёна в детстве"
                 loading="lazy"
             >
@@ -375,14 +291,13 @@
         </figure>
 
 
-
-        <!-- LILY BEFORE KIRILL -->
+        <!-- ЛИЛЯ + АЛЁНА ДО КИРИЛЛА -->
 
         <figure class="photo">
 
             <img
-                src="lily_before_kirill.jpg"
-                alt="Лиля до знакомства с Кириллом"
+                src="lily_before_kirill.jpeg"
+                alt="Лиля и Алёна до знакомства с Кириллом"
                 loading="lazy"
             >
 
@@ -393,14 +308,13 @@
         </figure>
 
 
-
-        <!-- ALENA + LILY + MAX -->
+        <!-- ЛИЛЯ + АЛЁНА + МАКС ДО КИРИЛЛА -->
 
         <figure class="photo offset">
 
             <img
-                src="alena_lily_max.jpg"
-                alt="Алёна, Лиля и Макс до знакомства с Кириллом"
+                src="alena_lily_max.jpeg"
+                alt="Лиля, Алёна и Макс до знакомства с Кириллом"
                 loading="lazy"
             >
 
@@ -410,9 +324,7 @@
 
         </figure>
 
-
     </div>
-
 
 
     <div class="story-text reveal">
@@ -430,7 +342,6 @@
 
     </div>
 
-
 </section>
 
 
@@ -438,8 +349,7 @@
 
 
 <!-- ==================================================
-     CHAPTER 02
-     MEETING
+     CHAPTER 02 — MEET
 ================================================== -->
 
 <section
@@ -447,103 +357,108 @@
     id="chapter02"
 >
 
-
     <header class="chapter-header reveal">
 
         <span class="chapter-code">
             02 / meet
         </span>
 
-
         <h2>
             The meeting
         </h2>
 
-
         <p class="chapter-intro">
-            Sochi.
-            “Мечтай”.
-            One conference.
-            Two people who didn't know
-            that this was the beginning.
+            First there was a conference.
+            Then messages.
+            Then calls.
+            And then — Petersburg.
         </p>
 
     </header>
 
 
+    <div class="story-text reveal">
+
+        <p>
+            They first saw each other
+            at the “Мечтай” conference
+            in Sochi.
+        </p>
+
+        <p>
+            They didn't talk there.
+        </p>
+
+        <p>
+            Later came messages
+            and phone calls.
+        </p>
+
+        <p>
+            And eventually,
+            Kirill came to Saint Petersburg
+            as a surprise.
+        </p>
+
+    </div>
+
+
+    <!-- ПЕРВОЕ ЗНАКОМСТВО ЛИЛИ С КИРИЛЛОМ -->
 
     <div class="single-feature reveal">
 
         <img
-            src="meeting_sochi.jpg"
-            alt="Конференция Мечтай в Сочи"
+            src="lily_alena_kirill.jpeg"
+            alt="Лиля, Алёна и Кирилл"
             loading="lazy"
         >
 
         <span>
-            Sochi / мечтай
+            first introduction
         </span>
 
     </div>
 
 
-
     <div class="story-text reveal">
 
         <p>
-            They saw each other there.
-        </p>
-
-        <p>
-            They didn't talk.
-        </p>
-
-        <p>
-            Then came messages.
-            Calls.
-            Conversations that slowly became something more.
-        </p>
-
-        <p>
-            And eventually —
-            Saint Petersburg.
+            And somewhere around that time,
+            the story stopped being
+            just conversations on a screen.
         </p>
 
     </div>
 
 
+    <!-- КИРИЛЛ ПРЯЧЕТСЯ -->
 
     <div class="single-feature narrow reveal">
 
         <img
-            src="saint_petersburg_first_meeting.jpg"
-            alt="Первая встреча Кирилла и Лили в Петербурге"
+            src="kirill_hiding.jpeg"
+            alt="Кирилл прячется на улице"
             loading="lazy"
         >
 
         <span>
-            Saint Petersburg / first meeting
+            Kirill.exe is hiding
         </span>
 
     </div>
 
 
-
     <div class="story-text reveal">
 
-        <p>
-            Kirill arrived as a surprise.
+        <p class="code-note">
+            &gt; first_meeting.status = unexpected
         </p>
 
-        <p>
-            And suddenly,
-            the person who once existed
-            only inside a screen
-            was standing right there.
+        <p class="code-note">
+            &gt; relationship.status = loading...
         </p>
 
     </div>
-
 
 </section>
 
@@ -552,8 +467,7 @@
 
 
 <!-- ==================================================
-     CHAPTER 03
-     PROPOSAL
+     CHAPTER 03 — PROPOSAL
 ================================================== -->
 
 <section
@@ -561,18 +475,15 @@
     id="chapter03"
 >
 
-
     <header class="chapter-header reveal">
 
         <span class="chapter-code">
             03 / proposal
         </span>
 
-
         <h2>
             Yes.
         </h2>
-
 
         <p class="chapter-intro">
             Another trip.
@@ -583,56 +494,51 @@
     </header>
 
 
-
-    <div class="proposal-grid reveal">
-
-
-        <figure>
-
-            <img
-                src="proposal_1.jpg"
-                alt="Предложение Кирилла Лиле"
-                loading="lazy"
-            >
-
-        </figure>
-
-
-        <figure>
-
-            <img
-                src="proposal_2.jpg"
-                alt="Предложение Кирилла Лиле"
-                loading="lazy"
-            >
-
-        </figure>
-
-
-    </div>
-
-
-
     <div class="story-text reveal">
 
         <p>
-            Saint Petersburg again.
+            Petersburg again.
         </p>
 
         <p>
             But this time,
-            Kirill came with a question
-            that changed everything.
+            Kirill arrived with
+            a question that changed everything.
         </p>
 
     </div>
 
+
+    <div class="proposal-grid reveal">
+
+        <figure>
+
+            <img
+                src="proposal_1.jpeg"
+                alt="Предложение Кирилла Лиле"
+                loading="lazy"
+            >
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="proposal_2.jpeg"
+                alt="Предложение Кирилла Лиле"
+                loading="lazy"
+            >
+
+        </figure>
+
+    </div>
 
 
     <div class="dress-photo reveal">
 
         <img
-            src="dress_fitting.jpg"
+            src="dress_fitting.jpeg"
             alt="Примерка свадебного платья"
             loading="lazy"
         >
@@ -643,7 +549,6 @@
 
     </div>
 
-
 </section>
 
 
@@ -651,8 +556,7 @@
 
 
 <!-- ==================================================
-     CHAPTER 04
-     ADVENTURES
+     CHAPTER 04 — ADVENTURES
 ================================================== -->
 
 <section
@@ -660,39 +564,35 @@
     id="chapter04"
 >
 
-
     <header class="chapter-header reveal">
 
         <span class="chapter-code">
             04 / adventures
         </span>
 
-
         <h2>
             Together
         </h2>
 
-
         <p class="chapter-intro">
             Ten months.
-            A lot of new places.
-            And somehow,
-            even more new versions of themselves.
+            New places.
+            New hobbies.
+            New versions of themselves.
         </p>
 
     </header>
 
 
-
     <div class="adventure-layout reveal">
 
 
-        <!-- VLADIVOSTOK -->
+        <!-- ВЛАДИВОСТОК -->
 
         <figure class="adventure-main">
 
             <img
-                src="vladivostok.jpg"
+                src="vladivostok.jpeg"
                 alt="Кирилл и Лиля во Владивостоке"
                 loading="lazy"
             >
@@ -704,13 +604,12 @@
         </figure>
 
 
-
-        <!-- JOINT FLIGHT -->
+        <!-- СОВМЕСТНЫЙ ПЕРЕЛЁТ -->
 
         <figure class="adventure-small">
 
             <img
-                src="joint_flight.jpg"
+                src="joint_flight.jpeg"
                 alt="Совместный перелёт"
                 loading="lazy"
             >
@@ -722,13 +621,12 @@
         </figure>
 
 
-
-        <!-- KALININGRAD APARTMENT -->
+        <!-- КАЛИНИНГРАД / ЛИФТ -->
 
         <figure class="adventure-small home">
 
             <img
-                src="kaliningrad_elevator.jpg"
+                src="kaliningrad_elevator.jpeg"
                 alt="Первая совместная квартира в Калининграде"
                 loading="lazy"
             >
@@ -739,9 +637,7 @@
 
         </figure>
 
-
     </div>
-
 
 
     <div class="adventure-note reveal">
@@ -754,18 +650,17 @@
         <p>
             Рядом с Лилей Кирилл стал
             много путешествовать,
-            открывать новые увлечения
-            и смотреть на мир немного шире.
+            открывать для себя новые увлечения
+            и пробовать больше нового.
         </p>
 
         <p>
-            А благодаря этим увлечениям
+            Благодаря этим увлечениям
             мы сами оказались в Калининграде —
             и очень этому рады.
         </p>
 
     </div>
-
 
 </section>
 
@@ -774,8 +669,7 @@
 
 
 <!-- ==================================================
-     CHAPTER 05
-     MARRIAGE
+     CHAPTER 05 — MARRIAGE
 ================================================== -->
 
 <section
@@ -783,18 +677,15 @@
     id="chapter05"
 >
 
-
     <header class="chapter-header reveal">
 
         <span class="chapter-code">
             05 / marriage
         </span>
 
-
         <h2>
             Official
         </h2>
-
 
         <p class="chapter-intro">
             Two stories.
@@ -805,39 +696,33 @@
     </header>
 
 
-
     <div class="wedding-gallery reveal">
 
-
         <img
-            src="registration_1.jpg"
+            src="registration_1.jpeg"
             alt="Роспись Кирилла и Лили"
             loading="lazy"
         >
 
-
         <img
-            src="registration_2.jpg"
+            src="registration_2.jpeg"
             alt="Роспись Кирилла и Лили"
             loading="lazy"
         >
 
-
         <img
-            src="registration_3.jpg"
+            src="registration_3.jpeg"
             alt="Роспись Кирилла и Лили"
             loading="lazy"
         >
 
-
         <img
-            src="registration_4.jpg"
+            src="registration_4.jpeg"
             alt="Роспись Кирилла и Лили"
             loading="lazy"
         >
 
     </div>
-
 
 
     <div class="commit-block reveal">
@@ -846,31 +731,25 @@
             system update
         </span>
 
-
         <code>
             &gt; relationship.status
         </code>
-
 
         <p>
             "married"
         </p>
 
-
         <code>
             &gt; version
         </code>
-
 
         <p>
             "2.0"
         </p>
 
-
         <code>
             &gt; future
         </code>
-
 
         <p>
             loading...
@@ -879,14 +758,12 @@
     </div>
 
 
-
     <div class="final-line reveal">
 
         The best
         is yet to come.
 
     </div>
-
 
 </section>
 
@@ -903,14 +780,11 @@
     id="promise"
 >
 
-
     <div class="promise-inner reveal">
-
 
         <span class="chapter-code">
             a promise
         </span>
-
 
         <blockquote>
             “Two are better than one,
@@ -918,14 +792,11 @@
             for their labor.”
         </blockquote>
 
-
         <cite>
             Ecclesiastes 4:9
         </cite>
 
-
     </div>
-
 
 </section>
 
@@ -942,18 +813,15 @@
     id="bottleSection"
 >
 
-
     <div class="bottle-intro reveal">
 
         <span class="chapter-code">
             06 / message
         </span>
 
-
         <h2>
             One last thing.
         </h2>
-
 
         <p>
             We left something
@@ -963,12 +831,9 @@
     </div>
 
 
-
     <div class="bottle-scene">
 
-
         <div class="water-glow"></div>
-
 
 
         <button
@@ -978,9 +843,7 @@
             aria-label="Open the bottle"
         >
 
-
             <span class="bottle-neck"></span>
-
 
             <span class="bottle-body">
 
@@ -988,18 +851,14 @@
 
             </span>
 
-
             <span class="bottle-cork"></span>
 
-
         </button>
-
 
 
         <span class="bottle-hint">
             click the bottle
         </span>
-
 
     </div>
 
@@ -1016,20 +875,16 @@
         id="letter"
     >
 
-
         <article class="letter-paper">
-
 
             <div class="letter-mark">
                 private message / kirill + lily
             </div>
 
 
-
             <h3>
                 Любимые,
             </h3>
-
 
 
             <p>
@@ -1038,7 +893,6 @@
                 иногда самый красивый путь —
                 совсем не самый простой.
             </p>
-
 
 
             <p>
@@ -1051,13 +905,11 @@
             </p>
 
 
-
             <p>
                 И, наверное, поэтому особенно здорово
                 видеть, что друг с другом у вас
                 всё получилось именно так.
             </p>
-
 
 
             <p>
@@ -1068,7 +920,6 @@
             </p>
 
 
-
             <p>
                 А Кирилл рядом с Лилей
                 стал больше путешествовать,
@@ -1077,14 +928,12 @@
             </p>
 
 
-
             <p>
                 Благодаря этим увлечениям
                 мы даже сами оказались
                 в Калининграде — и очень рады,
                 что так получилось.
             </p>
-
 
 
             <p>
@@ -1096,7 +945,6 @@
             </p>
 
 
-
             <p>
                 Пусть дальше будет ещё больше
                 путешествий, случайных приключений,
@@ -1105,7 +953,6 @@
                 которые потом вспоминаются
                 спустя много лет.
             </p>
-
 
 
             <p>
@@ -1119,13 +966,11 @@
             </p>
 
 
-
             <p>
                 Мы очень рады,
                 что однажды ваши дороги
                 пересеклись.
             </p>
-
 
 
             <p>
@@ -1135,11 +980,9 @@
             </p>
 
 
-
             <div class="letter-signature">
                 Миша &amp; Алёна
             </div>
-
 
 
             <div class="letter-location">
@@ -1147,12 +990,9 @@
                 08.08.26
             </div>
 
-
         </article>
 
-
     </div>
-
 
 </section>
 
@@ -1169,9 +1009,7 @@
     id="terminal"
 >
 
-
     <div class="terminal-window reveal">
-
 
         <div class="terminal-top">
 
@@ -1182,72 +1020,58 @@
         </div>
 
 
-
         <div class="terminal-body">
-
 
             <p>
                 <span>01</span>
                 &gt; initializing family...
             </p>
 
-
             <p>
                 <span>02</span>
                 &gt; loading memories...
             </p>
-
 
             <p>
                 <span>03</span>
                 &gt; loading adventures...
             </p>
 
-
             <p>
                 <span>04</span>
                 &gt; loading future...
             </p>
-
 
             <p class="terminal-success">
                 <span>05</span>
                 &gt; everything is ready.
             </p>
 
-
             <br>
-
 
             <p>
                 <span>06</span>
                 &gt; version
             </p>
 
-
             <p>
                 <span></span>
                 2.0
             </p>
 
-
             <br>
-
 
             <p>
                 <span>07</span>
                 &gt; status
             </p>
 
-
             <p class="terminal-success">
                 <span></span>
                 together / forever
             </p>
 
-
             <br>
-
 
             <p>
                 <span>08</span>
@@ -1255,30 +1079,17 @@
                 <span class="cursor">█</span>
             </p>
 
-
         </div>
-
 
     </div>
 
-
 </section>
-
 
 
 </main>
 
 
-
-
-
-<!-- ==================================================
-     JAVASCRIPT
-================================================== -->
-
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
